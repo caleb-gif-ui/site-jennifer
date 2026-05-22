@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pour Jennifer ❤️</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Poppins:wght@200;300;400;500;600&family=Inter:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Canvas pour les particules -->
+    <canvas id="particlesCanvas" aria-hidden="true"></canvas>
+
+    <!-- Curseur personnalisé -->
+    <div class="custom-cursor" id="customCursor">
+      <div class="cursor-ring"></div>
+      <div class="cursor-dot"></div>
+    </div>
+
+    <!-- Overlay pour la modale lettre -->
+    <div class="modal-overlay" id="letterModal">
+      <div class="modal-content">
+        <button
+          class="modal-close"
+          id="modalClose"
+          aria-label="Fermer la lettre"
+        >
+          ✕
+        </button>
+        <div class="modal-letter">
+          <h3>💌 Ma Lettre Pour Toi</h3>
+          <div class="modal-letter-body">
+            <p>Jennifer,</p>
+            <p>
+              Depuis que tu es entrée dans ma vie, quelque chose en moi a
+              changé. Tu es devenue cette personne qui illumine mes journées
+              sans même essayer. Quand je pense à toi, je ressens une paix que
+              je ne peux pas expliquer.
+            </p>
+            <p>
+              Ton sourire, ta douceur, ta présence… tout chez toi me fait du
+              bien. Je ne sais pas ce que l'avenir nous réserve, mais je sais
+              une chose : chaque moment passé avec toi compte énormément pour
+              moi.
+            </p>
+            <p>
+              Tu es devenue une partie importante de mon bonheur. Et même dans
+              les journées difficiles, penser à toi suffit parfois à me redonner
+              le sourire.
+            </p>
+            <p>
+              Merci d'être toi. Merci pour ton affection, ton attention et cette
+              lumière que tu apportes dans ma vie. Je veux simplement que tu
+              saches que je tiens profondément à toi. Plus que les mots peuvent
+              parfois le montrer.
+            </p>
+            <p>
+              Et peu importe le temps qui passe, mon cœur trouvera toujours
+              quelque chose de beau chez toi à aimer davantage. ❤️
+            </p>
+            <p class="modal-signature">
+              Avec tout mon amour,<br /><strong>Caleb</strong>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+      <div class="navbar-inner">
+        <a href="#hero" class="nav-brand">
+          <span class="heart-icon pulsate-emoji">❤️</span>
+          <span class="brand-text">SMJ</span>
+        </a>
+        <button
+          class="hamburger"
+          id="hamburgerBtn"
+          aria-label="Menu"
+          aria-expanded="false"
+        >
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#hero" class="nav-link">Accueil</a></li>
+          <li><a href="#letter-section" class="nav-link">Lettre</a></li>
+          <li><a href="#gallery-section" class="nav-link">Galerie</a></li>
+          <li><a href="#music-section" class="nav-link">Musique</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+      <div class="hero-bg-sun">
+        <!-- soleil.jpg intégré comme fond artistique -->
+        <div class="sun-image-wrapper">
+          <img
+            src="images/soleil.png"
+            alt=""
+            class="sun-image"
+            loading="eager"
+            onerror="
+              this.style.opacity = '0';
+              this.parentElement.style.background =
+                'radial-gradient(ellipse at center, rgba(255,140,120,0.25) 0%, rgba(255,80,130,0.15) 40%, transparent 70%)';
+            "
+          />
+        </div>
+      </div>
+      <div class="hero-glow-blobs">
+        <div class="glow-blob blob-1"></div>
+        <div class="glow-blob blob-2"></div>
+        <div class="glow-blob blob-3"></div>
+        <div class="glow-blob blob-4"></div>
+      </div>
+      <div class="hero-content">
+        <h1 class="hero-title">
+          <span class="title-line line-1"
+            >Du plus profond de mon être je te le dédie, Jennifer ❤️</span
+          >
+          <span class="title-emoji pulsate-emoji">❤️</span>
+        </h1>
+        <p class="hero-subtitle">
+          Et au milieu de milliards de personnes…<br />mon cœur t'a choisie toi.
+        </p>
+        <p class="hero-text">
+          Tu es la plus belle chose qui me soit arrivée. Ta présence dans ma vie
+          a changé tellement de choses en moi. Tu apportes à mon cœur une paix,
+          une douceur et un bonheur que les mots peinent parfois à décrire.
+          Alors je t'offre ce petit cadeau… Une petite partie de mes sentiments
+          gravée à travers ces images, ces mots et cette musique. J'aimerais que
+          ce site soit pour toi un refuge dans les jours difficiles, un rappel
+          que peu importe la distance, le temps ou les épreuves… je serai
+          toujours là pour toi. Parce qu'aujourd'hui, demain et encore après… tu
+          occupes une place précieuse dans mon cœur. ❤️
+        </p>
+        <a href="#letter-section" class="btn-primary ripple-btn">
+          <span>Voir ma lettre</span>
+          <span class="btn-glow"></span>
+        </a>
+      </div>
+      <div class="hero-silhouette">
+        <div class="silhouette-glow"></div>
+      </div>
+      <div class="scroll-indicator">
+        <span></span><span></span><span></span>
+      </div>
+    </section>
+
+    <!-- Section Galerie / Slider 3D -->
+    <section class="gallery-section" id="gallery-section">
+      <h2 class="section-title">
+        Sa personne <span class="pulsate-emoji">❤️</span>
+      </h2>
+      <div class="carousel-container">
+        <div class="carousel-3d" id="carousel3D">
+          <div class="carousel-track" id="carouselTrack">
+            <div class="carousel-slide" data-index="0">
+              <div class="slide-card">
+                <img
+                  src="images/jennifer1.jpg"
+                  alt="Jennifer 1"
+                  loading="lazy"
+                  onerror="
+                    this.style.display = 'none';
+                    this.parentElement.style.background =
+                      'linear-gradient(135deg,rgba(255,79,139,0.3),rgba(108,59,255,0.3))';
+                    this.parentElement.style.minHeight = '300px';
+                  "
+                />
+              </div>
+            </div>
+            <div class="carousel-slide" data-index="1">
+              <div class="slide-card">
+                <img
+                  src="images/jennifer2.jpg"
+                  alt="Jennifer 2"
+                  loading="lazy"
+                  onerror="
+                    this.style.display = 'none';
+                    this.parentElement.style.background =
+                      'linear-gradient(135deg,rgba(255,79,139,0.3),rgba(108,59,255,0.3))';
+                    this.parentElement.style.minHeight = '300px';
+                  "
+                />
+              </div>
+            </div>
+            <div class="carousel-slide" data-index="2">
+              <div class="slide-card">
+                <img
+                  src="images/jennifer3.jpg"
+                  alt="Jennifer 3"
+                  loading="lazy"
+                  onerror="
+                    this.style.display = 'none';
+                    this.parentElement.style.background =
+                      'linear-gradient(135deg,rgba(255,79,139,0.3),rgba(108,59,255,0.3))';
+                    this.parentElement.style.minHeight = '300px';
+                  "
+                />
+              </div>
+            </div>
+            <div class="carousel-slide" data-index="3">
+              <div class="slide-card">
+                <img
+                  src="images/jennifer4.jpg"
+                  alt="Jennifer 4"
+                  loading="lazy"
+                  onerror="
+                    this.style.display = 'none';
+                    this.parentElement.style.background =
+                      'linear-gradient(135deg,rgba(255,79,139,0.3),rgba(108,59,255,0.3))';
+                    this.parentElement.style.minHeight = '300px';
+                  "
+                />
+              </div>
+            </div>
+            <div class="carousel-slide" data-index="4">
+              <div class="slide-card">
+                <img
+                  src="images/jennifer5.jpg"
+                  alt="Jennifer 5"
+                  loading="lazy"
+                  onerror="
+                    this.style.display = 'none';
+                    this.parentElement.style.background =
+                      'linear-gradient(135deg,rgba(255,79,139,0.3),rgba(108,59,255,0.3))';
+                    this.parentElement.style.minHeight = '300px';
+                  "
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-controls">
+          <button
+            class="carousel-btn carousel-prev"
+            id="carouselPrev"
+            aria-label="Image précédente"
+          >
+            <span>‹</span>
+          </button>
+          <div class="carousel-indicators" id="carouselIndicators">
+            <span class="indicator active" data-index="0"></span>
+            <span class="indicator" data-index="1"></span>
+            <span class="indicator" data-index="2"></span>
+            <span class="indicator" data-index="3"></span>
+            <span class="indicator" data-index="4"></span>
+          </div>
+          <button
+            class="carousel-btn carousel-next"
+            id="carouselNext"
+            aria-label="Image suivante"
+          >
+            <span>›</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Lettre -->
+    <section class="letter-section" id="letter-section">
+      <div class="letter-card">
+        <div class="letter-glow"></div>
+        <div class="letter-content">
+          <h2 class="letter-title">💌 Une lettre pour toi</h2>
+          <div class="letter-body">
+            <p>Jennifer,</p>
+            <p>
+              Depuis que tu es entrée dans ma vie, quelque chose en moi a
+              changé. Tu es devenue cette personne qui illumine mes journées
+              sans même essayer. Quand je pense à toi, je ressens une paix que
+              je ne peux pas expliquer. Ton sourire, ta douceur, ta présence…
+              tout chez toi me fait du bien.
+            </p>
+            <p>
+              Je ne sais pas ce que l'avenir nous réserve, mais je sais une
+              chose : chaque moment passé avec toi compte énormément pour moi.
+              Tu es devenue une partie importante de mon bonheur. Et même dans
+              les journées difficiles, penser à toi suffit parfois à me redonner
+              le sourire.
+            </p>
+            <p>
+              Merci d'être toi. Merci pour ton affection, ton attention et cette
+              lumière que tu apportes dans ma vie. Je veux simplement que tu
+              saches que je tiens profondément à toi. Plus que les mots peuvent
+              parfois le montrer. Et peu importe le temps qui passe, mon cœur
+              trouvera toujours quelque chose de beau chez toi à aimer
+              davantage. ❤️
+            </p>
+            <p class="letter-signature">
+              Avec tout mon amour,<br /><strong>Caleb</strong>
+            </p>
+          </div>
+          <button class="btn-secondary ripple-btn" id="openLetterBtn">
+            <span>Lire ma lettre</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Musique -->
+    <section class="music-section" id="music-section">
+      <h2 class="section-title">🎵 Le sons de mon coeur</h2>
+      <div class="music-player">
+        <div class="music-card">
+          <div class="music-artwork" id="musicArtwork">
+            <div class="artwork-inner">
+              <span class="artwork-emoji pulsate-emoji">💿</span>
+              <div class="artwork-ring"></div>
+            </div>
+          </div>
+          <div class="music-info">
+            <h3 class="music-title">Perfect</h3>
+            <p class="music-artist">Ed Sheeran</p>
+          </div>
+          <div class="music-controls">
+            <button
+              class="music-btn play-btn"
+              id="playBtn"
+              aria-label="Lecture/Pause"
+            >
+              <span class="play-icon">▶</span>
+            </button>
+            <div class="progress-container" id="progressContainer">
+              <div class="progress-bar" id="progressBar">
+                <div class="progress-fill" id="progressFill"></div>
+                <div class="progress-thumb" id="progressThumb"></div>
+              </div>
+              <span class="time-display" id="timeDisplay">00:00 / 00:00</span>
+            </div>
+            <div class="volume-container">
+              <span class="volume-icon">🔊</span>
+              <input
+                type="range"
+                class="volume-slider"
+                id="volumeSlider"
+                min="0"
+                max="100"
+                value="70"
+                aria-label="Volume"
+              />
+            </div>
+          </div>
+          <div class="music-glow"></div>
+        </div>
+      </div>
+      <audio id="bgMusic" preload="auto" loop>
+        <source src="music/Ed_Sheeran_-_Perfect(256k).mp3" type="audio/mpeg" />
+      </audio>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <p>
+        Fait avec tout mon cœur, pour te redonner le sourire Jennifer
+        <span class="pulsate-emoji">❤️</span>
+      </p>
+      <p class="footer-sub">— Caleb</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
